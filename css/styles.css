@@ -6,6 +6,7 @@
     --main-color: #212121;
     --secondary-color: #757575;
     --white-color: #FFFFFF;
+    --white-color-opacity: #FFFFFF1A;
     --border-color: #ECECEC;
     --border-color-product: #EEEEEE;
     --button-shadow-color-first: #0000001F;
@@ -13,8 +14,11 @@
     --button-shadow-color-third: #0000001A;
     --container-shadow-color-first: #00000033;
     --container-shadow-color-second: #00000024;
+    --container-shadow-color-third: #0000000F;
+    --container-shadow-color-fourth: #00000029;
+    --gradient-color: #2F303A66;
+    --icon-color: #AFB1B8;
 }
-
 
 h1,
 h2,
@@ -28,6 +32,11 @@ p {
 
 li {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .section {
@@ -93,7 +102,6 @@ header .contacts {
 
 header a, 
 footer a {
-    text-decoration: none;
     color: var(--main-color);
     font-size: 14px;
     line-height: 1.14;
@@ -105,9 +113,16 @@ header a {
     font-weight: 500;
 }
 
-header .mail,
-header .tel {
-    color: var(--secondary-color)
+header a.mail,
+header a.tel {
+    color: var(--secondary-color);
+    align-items: center;
+}
+
+header a.mail svg,
+header a.tel svg{
+    margin-right: 10px;
+    fill: currentColor;
 }
 
 a.logo {
@@ -186,6 +201,15 @@ footer a:focus {
     margin: 15px;
 }
 
+.portfolio-product-list li > a {
+    display: block;
+}
+
+.portfolio-product-list li > a:hover, 
+.portfolio-product-list li > a:focus {
+    box-shadow: 1px 4px 6px 0px var(--container-shadow-color-fourth), 0px 4px 4px 0px var(--container-shadow-color-third), 0px 1px 1px 0px var(--button-shadow-color-first);
+}
+
 .portfolio-product-list .product-title {
     font-size: 18px;
     font-weight: 700;
@@ -223,14 +247,14 @@ footer a:focus {
 
 .web-studio-team li > img,
 .web-studio-activity a > img,
-.portfolio-product-list li > img {
+.portfolio-product-list a > img {
     vertical-align: bottom;
 }
 
 
 
 .team-member-wrapper {
-    padding: 30px 0;
+    padding: 30px 32px;
     background-color: var(--white-color);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -255,6 +279,10 @@ footer a:focus {
 
 .web-studio .wrapper {
     background-color: var(--background-color-dark);
+    background-image: linear-gradient(to bottom, var(--gradient-color), var(--gradient-color)), url('../images/team.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-position: 50% 50%, 50% 50%;
     text-align: center;
     padding: 200px 0;
 }
@@ -292,6 +320,17 @@ footer a:focus {
 
 .web-studio-advantages {
     justify-content: space-between;
+}
+
+.web-studio-advantages .icon-wrapper {
+    background-color: var(--background-color-section);
+    border-radius: 4px;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+.icon-wrapper svg {
+    margin: auto auto;
 }
 
 .web-studio-advantages > li{
@@ -333,16 +372,61 @@ footer a:focus {
     text-align: center;
 }
 
-.web-studio-team .web-studio-team-member-title {
+.web-studio-team .team-member-title {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.18;
 }
 
-.web-studio-team .web-studio-team-member-description {
+.web-studio-team .team-member-description {
     font-size: 16px;
     line-height: 1.18;
     color: var(--secondary-color);
+}
+
+.team-member-socials-wrapper {
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.team-member-socials-wrapper li > a, 
+.social-links li > a {
+    width: 44px;
+    height: 44px;
+    color: var(--icon-color);
+    border-radius: 50%;
+}
+
+.team-member-socials-wrapper li > a:hover, 
+.team-member-socials-wrapper li > a:focus {
+    color: var(--white-color);
+    background-color: var(--background-color-active)
+}
+
+.team-member-socials-wrapper a > svg, 
+.social-links a > svg {
+    margin: auto auto;
+    fill: currentColor;
+}
+
+.web-studio-clients {
+    justify-content: space-between;
+}
+
+.web-studio-clients li > a:hover, 
+.web-studio-clients li > a:focus {
+    color: var(--background-color-active);
+}
+
+.web-studio-clients li > a {
+    display: block;
+    color: var(--icon-color);
+}
+
+.web-studio-clients svg {
+    fill: currentColor;
+    border: 1px solid currentColor;
+    border-radius: 4px;
 }
 
 footer.footer-main {
@@ -375,6 +459,36 @@ footer .mail {
     letter-spacing: inherit;
     line-height: inherit;
 }
+
+.footer-main h3{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.socials-wrapper {
+    margin-top: 12px;
+    margin-left: 70px;
+}
+
+.social-links li:not(:first-child) {
+    margin-left: 10px;
+}
+
+.social-links li > a {
+    color: var(--white-color);
+    background-color: var(--white-color-opacity);
+}
+
+.social-links li > a:hover,
+.social-links li > a:focus {
+    background-color: var(--background-color-active)
+}
+
 
 
 
